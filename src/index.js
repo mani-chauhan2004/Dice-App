@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ActiveElementContext from './contexts/activeElementContext';
+import ScoreProvider from './contexts/scoreContext';
+import DiceProvider from './contexts/diceContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ActiveElementContext>
+      <DiceProvider>
+        <ScoreProvider>
+            <App />
+        </ScoreProvider>
+      </DiceProvider>
+    </ActiveElementContext>
   </React.StrictMode>
 );
 
